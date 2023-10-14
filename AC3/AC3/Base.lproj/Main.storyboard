@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AC3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBz-Ud-3dy" customClass="Round">
-                                <rect key="frame" x="313.66666666666669" y="623.66666666666663" width="88.333333333333314" height="88.333333333333371"/>
+                                <rect key="frame" x="325.66666666666669" y="781.66666666666663" width="92.333333333333314" height="92.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nBz-Ud-3dy" secondAttribute="height" id="0Ld-Jr-yaj"/>
                                 </constraints>
@@ -31,7 +31,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaT-a5-GzW">
-                                <rect key="frame" x="313.66666666666669" y="523" width="88.333333333333314" height="88.666666666666629"/>
+                                <rect key="frame" x="325.66666666666669" y="677" width="92.333333333333314" height="92.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VaT-a5-GzW" secondAttribute="height" id="VbM-76-jR5"/>
                                 </constraints>
@@ -40,7 +40,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="+" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQy-Mv-VKM">
-                                <rect key="frame" x="313.66666666666669" y="422.66666666666669" width="88.333333333333314" height="88.333333333333314"/>
+                                <rect key="frame" x="325.66666666666669" y="572.66666666666663" width="92.333333333333314" height="92.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lQy-Mv-VKM" secondAttribute="height" multiplier="1:1" id="Q0W-GD-Xii"/>
                                 </constraints>
@@ -49,7 +49,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="−" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8R-tC-JdM">
-                                <rect key="frame" x="313.66666666666669" y="322" width="88.333333333333314" height="88.666666666666686"/>
+                                <rect key="frame" x="325.66666666666669" y="468.00000000000006" width="92.333333333333314" height="92.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="x8R-tC-JdM" secondAttribute="height" id="ihK-za-jQC"/>
                                 </constraints>
@@ -58,55 +58,55 @@
                                 <buttonConfiguration key="configuration" style="filled" title="×" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m66-7I-NFV">
-                                <rect key="frame" x="212.99999999999997" y="322" width="88.666666666666657" height="88.666666666666686"/>
+                                <rect key="frame" x="221" y="468.00000000000006" width="92.666666666666629" height="92.666666666666686"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="9" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhZ-aS-Hee">
-                                <rect key="frame" x="112.66666666666669" y="322" width="88.333333333333314" height="88.666666666666686"/>
+                                <rect key="frame" x="116.66666666666669" y="468.00000000000006" width="92.333333333333314" height="92.666666666666686"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="8" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYF-sQ-naK">
-                                <rect key="frame" x="12" y="322" width="88.666666666666671" height="88.666666666666686"/>
+                                <rect key="frame" x="12" y="468.00000000000006" width="92.666666666666671" height="92.666666666666686"/>
                                 <color key="tintColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="7" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xic-LE-buy">
-                                <rect key="frame" x="212.99999999999997" y="523" width="88.666666666666657" height="88.666666666666629"/>
+                                <rect key="frame" x="221" y="677" width="92.666666666666629" height="92.666666666666629"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="3" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stk-Zh-RzZ">
-                                <rect key="frame" x="112.66666666666669" y="523" width="88.333333333333314" height="88.666666666666629"/>
+                                <rect key="frame" x="116.66666666666669" y="677" width="92.333333333333314" height="92.666666666666629"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="2" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZZ-es-1hf">
-                                <rect key="frame" x="12" y="623.66666666666663" width="189" height="88.333333333333371"/>
+                                <rect key="frame" x="12" y="781.66666666666663" width="197" height="92.333333333333371"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="0" cornerStyle="capsule" buttonSize="large"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oad-Wg-3wW">
-                                <rect key="frame" x="212.99999999999997" y="623.66666666666663" width="88.666666666666657" height="88.333333333333371"/>
+                                <rect key="frame" x="221" y="781.66666666666663" width="92.666666666666629" height="92.333333333333371"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="," cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns3-m5-XdS">
-                                <rect key="frame" x="12" y="523" width="88.666666666666671" height="88.666666666666629"/>
+                                <rect key="frame" x="12" y="677" width="92.666666666666671" height="92.666666666666629"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="1" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fc-aD-hFv">
-                                <rect key="frame" x="313.66666666666669" y="221.66666666666666" width="88.333333333333314" height="88.333333333333343"/>
+                                <rect key="frame" x="325.66666666666669" y="363.66666666666669" width="92.333333333333314" height="92.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3fc-aD-hFv" secondAttribute="height" id="k5d-lV-Cgm"/>
                                 </constraints>
@@ -115,7 +115,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="÷" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7X-FF-7rJ">
-                                <rect key="frame" x="212.99999999999997" y="221.66666666666666" width="88.666666666666657" height="88.333333333333343"/>
+                                <rect key="frame" x="221" y="363.66666666666669" width="92.666666666666629" height="92.333333333333314"/>
                                 <color key="tintColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="%" cornerStyle="capsule">
@@ -123,7 +123,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vK-Ui-cAx">
-                                <rect key="frame" x="112.66666666666669" y="221.66666666666666" width="88.333333333333314" height="88.333333333333343"/>
+                                <rect key="frame" x="116.66666666666669" y="363.66666666666669" width="92.333333333333314" height="92.333333333333314"/>
                                 <color key="tintColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="⁺∕₋" cornerStyle="capsule">
@@ -131,13 +131,13 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4u-2K-TTL">
-                                <rect key="frame" x="212.99999999999997" y="422.66666666666669" width="88.666666666666657" height="88.333333333333314"/>
+                                <rect key="frame" x="221" y="572.66666666666663" width="92.666666666666629" height="92.333333333333371"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="6" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anT-Qy-h99">
-                                <rect key="frame" x="12" y="221.66666666666666" width="88.666666666666671" height="88.333333333333343"/>
+                                <rect key="frame" x="12" y="363.66666666666669" width="92.666666666666671" height="92.333333333333314"/>
                                 <color key="tintColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="AC" cornerStyle="capsule">
@@ -145,19 +145,19 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1e-sG-1gU">
-                                <rect key="frame" x="112.66666666666669" y="422.66666666666669" width="88.333333333333314" height="88.333333333333314"/>
+                                <rect key="frame" x="116.66666666666669" y="572.66666666666663" width="92.333333333333314" height="92.333333333333371"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="5" cornerStyle="capsule"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTl-uT-GHx">
-                                <rect key="frame" x="12" y="422.66666666666669" width="88.666666666666671" height="88.333333333333314"/>
+                                <rect key="frame" x="12" y="572.66666666666663" width="92.666666666666671" height="92.333333333333371"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="4" cornerStyle="capsule"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ftN-zW-bNp">
-                                <rect key="frame" x="24" y="96" width="366" height="101.66666666666669"/>
+                                <rect key="frame" x="24" y="155" width="382" height="184.66666666666663"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="91"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -254,14 +254,6 @@
                         <outlet property="num7" destination="mYF-sQ-naK" id="nkN-8X-klf"/>
                         <outlet property="num8" destination="WhZ-aS-Hee" id="zHG-wu-XxG"/>
                         <outlet property="num9" destination="m66-7I-NFV" id="VRc-ZV-wpi"/>
-                        <outlet property="numFour" destination="MTl-uT-GHx" id="Qun-8Z-X3W"/>
-                        <outlet property="numOne" destination="Ns3-m5-XdS" id="BmV-Sl-cbN"/>
-                        <outlet property="numThree" destination="xic-LE-buy" id="hKZ-1D-mR6"/>
-                        <outlet property="numTwo" destination="stk-Zh-RzZ" id="hpc-Pk-blW"/>
-                        <outlet property="numZero" destination="qZZ-es-1hf" id="Iuw-hQ-r3R"/>
-                        <outlet property="num_0" destination="qZZ-es-1hf" id="Xev-lb-vo8"/>
-                        <outlet property="num_1" destination="Ns3-m5-XdS" id="yQZ-Fu-gIJ"/>
-                        <outlet property="oneNum" destination="Ns3-m5-XdS" id="QWB-uF-vwZ"/>
                         <outlet property="opAc" destination="anT-Qy-h99" id="mhJ-rn-VTj"/>
                         <outlet property="opAdd" destination="VaT-a5-GzW" id="OQN-g9-aCJ"/>
                         <outlet property="opComma" destination="oad-Wg-3wW" id="Gdi-sc-9NX"/>
@@ -271,9 +263,6 @@
                         <outlet property="opPlusMinus" destination="3vK-Ui-cAx" id="Pg3-9X-5wf"/>
                         <outlet property="opRes" destination="nBz-Ud-3dy" id="H7e-WW-a9A"/>
                         <outlet property="opSub" destination="lQy-Mv-VKM" id="brD-n4-ncV"/>
-                        <outlet property="threeNum" destination="xic-LE-buy" id="4Kz-7r-Yv4"/>
-                        <outlet property="twoNum" destination="stk-Zh-RzZ" id="0cZ-3d-JdL"/>
-                        <outlet property="zeroNum" destination="qZZ-es-1hf" id="Cpf-ns-aYk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
