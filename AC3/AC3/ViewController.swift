@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var hasOperation: Bool = false
     var hasComma: Bool = false
     var commaCounter: Int = 0
+    var numDigitsEntered: Int = 0; //Number of digits that have been entered one just after the other. A max of 9 digits is allowed
 
 
     override func viewDidLoad() {
@@ -33,40 +34,55 @@ class ViewController: UIViewController {
         hasOperation = false
         hasComma = false
         commaCounter = 0
-        resultLabel.text = "0"
+        updateResultLabel(value: "0")
+        numDigitsEntered = 0;
+    }
+    
+    func updateResultLabel(value: String) {
+        
+        resultLabel.text = value;
+        
     }
     
     
     @IBAction func numberClicked(_ sender: UIButton) {
+        
+        numDigitsEntered += 1;
+
         // TAG = Number value
         if hasOperation {
             if hasComma {
                 commaCounter += 1
                 actualValue2 = actualValue2 + Float64(sender.tag) / pow(10, Float64(commaCounter))
-                resultLabel.text = String(actualValue2)
+                updateResultLabel(value: String(actualValue2))
             } else {
                 actualValue2 = actualValue2 * 10 + Float64(sender.tag)
-                resultLabel.text = String(actualValue2.clean)
+                updateResultLabel(value: String(actualValue2.clean))
             }
 
         } else {
-            if hasComma {
-                commaCounter += 1
-                actualValue1 = actualValue1 + Float64(sender.tag) / pow(10, Float64(commaCounter))
-                resultLabel.text = String(actualValue1)
-            } else {
-                actualValue1 = actualValue1 * 10 + Float64(sender.tag)
-                resultLabel.text = String(actualValue1.clean)
+            if numDigitsEntered <= 9 {
+                if hasComma {
+                    commaCounter += 1
+                    actualValue1 = actualValue1 + Float64(sender.tag) / pow(10, Float64(commaCounter))
+                    updateResultLabel(value: String(actualValue1))
+                } else {
+                    actualValue1 = actualValue1 * 10 + Float64(sender.tag)
+                    updateResultLabel(value: String(actualValue1.clean))
+                }
             }
         }
     }
     
     
     @IBAction func operatorClicked(_ sender: UIButton) {
+        
+        numDigitsEntered = 0;
+
         // TAG 1 = + ; 2 = - ; 3 = x ; 4 = /
         if hasOperation {
             performOperation()
-            resultLabel.text = String(resultValue.clean)
+            updateResultLabel(value: String(resultValue.clean))
         } else {
             operation = sender.tag
             hasOperation = true
@@ -79,9 +95,9 @@ class ViewController: UIViewController {
     @IBAction func calculateResult(_ sender: UIButton) {
         if hasOperation {
             performOperation()
-            resultLabel.text = String(resultValue.clean)
+            updateResultLabel(value: String(resultValue.clean))
         } else {
-            resultLabel.text = String(resultValue.clean)
+            updateResultLabel(value: String(resultValue.clean))
         }
         hasComma = false
         commaCounter = 0
@@ -91,12 +107,15 @@ class ViewController: UIViewController {
     
     
     @IBAction func percentatgeCalculation(_ sender: UIButton) {
+        
+        numDigitsEntered = 0;
+        
         if hasOperation {
             actualValue2 = actualValue2 / 100
-            resultLabel.text = String(actualValue2.clean)
+            updateResultLabel(value: String(actualValue2.clean))
         } else {
             actualValue1 = actualValue1 / 100
-            resultLabel.text = String(actualValue1.clean)
+            updateResultLabel(value: String(actualValue1.clean))
         }
         hasComma = false
         commaCounter = 0
@@ -106,10 +125,10 @@ class ViewController: UIViewController {
     @IBAction func PlusMinusClicked(_ sender: UIButton) {
         if hasOperation {
             actualValue2 = actualValue2 * -1
-            resultLabel.text = String(actualValue2.clean)
+            updateResultLabel(value: String(actualValue2.clean))
         } else {
             actualValue1 = actualValue1 * -1
-            resultLabel.text = String(actualValue1.clean)
+            updateResultLabel(value: String(actualValue1.clean))
         }
         hasComma = false
         commaCounter = 0
