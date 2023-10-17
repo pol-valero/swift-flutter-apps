@@ -46,7 +46,8 @@ class ViewController: UIViewController {
         numberFormatter.minimumIntegerDigits = 1
         numberFormatter.maximumFractionDigits = 2
         
-
+        numberFormatter.locale = Locale(identifier: "es_ES")
+        
         return numberFormatter.string(from: NSNumber(value: number)) ?? String(number)
     }
     
@@ -54,6 +55,8 @@ class ViewController: UIViewController {
         let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
             numberFormatter.maximumFractionDigits = 5
+        
+            numberFormatter.locale = Locale(identifier: "es_ES")
 
             return numberFormatter.string(from: NSNumber(value: number)) ?? String(number)
     }
