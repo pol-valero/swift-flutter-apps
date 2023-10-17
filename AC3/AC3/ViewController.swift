@@ -34,14 +34,29 @@ class ViewController: UIViewController {
         hasOperation = false
         hasComma = false
         commaCounter = 0
-        updateResultLabel(value: "0")
+        updateResultLabel(value: 0)
         numDigitsEntered = 0;
     }
     
-    func updateResultLabel(value: String) {
+    func convertToScientificNotation(number: Double) -> String {
+        let numberFormatter = NumberFormatter()
         
-        resultLabel.text = value;
+        numberFormatter.numberStyle = .scientific
+        numberFormatter.exponentSymbol = "e"
+        numberFormatter.minimumIntegerDigits = 1
+        numberFormatter.maximumFractionDigits = 2
+
+        return numberFormatter.string(from: NSNumber(value: number)) ?? String(number)
+    }
+    
+    func updateResultLabel(value: Double) {
         
+        if abs(value) >= 1e9 {
+            resultLabel.text = convertToScientificNotation(number: value);
+        } else {
+            resultLabel.text = value.clean;
+        }
+
     }
     
     
@@ -54,10 +69,10 @@ class ViewController: UIViewController {
             if hasComma {
                 commaCounter += 1
                 actualValue2 = actualValue2 + Float64(sender.tag) / pow(10, Float64(commaCounter))
-                updateResultLabel(value: String(actualValue2))
+                updateResultLabel(value: actualValue2)
             } else {
                 actualValue2 = actualValue2 * 10 + Float64(sender.tag)
-                updateResultLabel(value: String(actualValue2.clean))
+                updateResultLabel(value: actualValue2)
             }
 
         } else {
@@ -65,10 +80,10 @@ class ViewController: UIViewController {
                 if hasComma {
                     commaCounter += 1
                     actualValue1 = actualValue1 + Float64(sender.tag) / pow(10, Float64(commaCounter))
-                    updateResultLabel(value: String(actualValue1))
+                    updateResultLabel(value: actualValue1)
                 } else {
                     actualValue1 = actualValue1 * 10 + Float64(sender.tag)
-                    updateResultLabel(value: String(actualValue1.clean))
+                    updateResultLabel(value: actualValue1)
                 }
             }
         }
@@ -82,7 +97,7 @@ class ViewController: UIViewController {
         // TAG 1 = + ; 2 = - ; 3 = x ; 4 = /
         if hasOperation {
             performOperation()
-            updateResultLabel(value: String(resultValue.clean))
+            updateResultLabel(value: resultValue)
         } else {
             operation = sender.tag
             hasOperation = true
@@ -95,9 +110,9 @@ class ViewController: UIViewController {
     @IBAction func calculateResult(_ sender: UIButton) {
         if hasOperation {
             performOperation()
-            updateResultLabel(value: String(resultValue.clean))
+            updateResultLabel(value: resultValue)
         } else {
-            updateResultLabel(value: String(resultValue.clean))
+            updateResultLabel(value: resultValue)
         }
         hasComma = false
         commaCounter = 0
@@ -112,10 +127,10 @@ class ViewController: UIViewController {
         
         if hasOperation {
             actualValue2 = actualValue2 / 100
-            updateResultLabel(value: String(actualValue2.clean))
+            updateResultLabel(value: actualValue2)
         } else {
             actualValue1 = actualValue1 / 100
-            updateResultLabel(value: String(actualValue1.clean))
+            updateResultLabel(value: actualValue1)
         }
         hasComma = false
         commaCounter = 0
@@ -125,10 +140,10 @@ class ViewController: UIViewController {
     @IBAction func PlusMinusClicked(_ sender: UIButton) {
         if hasOperation {
             actualValue2 = actualValue2 * -1
-            updateResultLabel(value: String(actualValue2.clean))
+            updateResultLabel(value: actualValue2)
         } else {
             actualValue1 = actualValue1 * -1
-            updateResultLabel(value: String(actualValue1.clean))
+            updateResultLabel(value: actualValue1)
         }
         hasComma = false
         commaCounter = 0
