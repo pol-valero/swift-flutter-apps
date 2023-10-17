@@ -45,8 +45,17 @@ class ViewController: UIViewController {
         numberFormatter.exponentSymbol = "e"
         numberFormatter.minimumIntegerDigits = 1
         numberFormatter.maximumFractionDigits = 2
+        
 
         return numberFormatter.string(from: NSNumber(value: number)) ?? String(number)
+    }
+    
+    func convertToDecimalNotation(number: Double) -> String {
+        let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            numberFormatter.maximumFractionDigits = 5
+
+            return numberFormatter.string(from: NSNumber(value: number)) ?? String(number)
     }
     
     func updateResultLabel(value: Double) {
@@ -54,7 +63,7 @@ class ViewController: UIViewController {
         if abs(value) >= 1e9 {
             resultLabel.text = convertToScientificNotation(number: value);
         } else {
-            resultLabel.text = value.clean;
+            resultLabel.text = convertToDecimalNotation(number: value);
         }
 
     }
