@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var hasComma: Bool = false
     var commaCounter: Int = 0
     var numDigitsEntered: Int = 0; //Number of digits that have been entered one just after the other. A max of 9 digits is allowed
-
+    var resultHasDecimals = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         commaCounter = 0
         updateResultLabel(value: 0)
         numDigitsEntered = 0;
+        resultHasDecimals = false;
     }
     
     func convertToScientificNotation(number: Double) -> String {
@@ -105,6 +106,7 @@ class ViewController: UIViewController {
     @IBAction func operatorClicked(_ sender: UIButton) {
         
         numDigitsEntered = 0;
+        resultHasDecimals = false;
 
         // TAG 1 = + ; 2 = - ; 3 = x ; 4 = /
         if hasOperation {
@@ -163,7 +165,12 @@ class ViewController: UIViewController {
     
     
     @IBAction func flotantClicked(_ sender: UIButton) {
-        hasComma = true
+        if (resultHasDecimals) {
+            hasComma = false
+        } else {
+            //If no decimals are already in the result, we can add decimals
+            hasComma = true;
+        }
     }
 
     func performOperation() {
@@ -179,6 +186,18 @@ class ViewController: UIViewController {
         default:
             resultValue = 0
         }
+        
+        if (resultValue.rounded(.up) == resultValue.rounded(.down)) {
+            //Number is integer
+            print("is integer")
+            resultHasDecimals = false
+        } else {
+            //Number has decimals
+            resultHasDecimals = true
+            print("has decimals")
+
+        }
+        
         actualValue1 = resultValue
         actualValue2 = 0
     }
