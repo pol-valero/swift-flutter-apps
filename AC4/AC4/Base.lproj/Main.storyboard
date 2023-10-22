@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S9p-bP-Ndi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S9p-bP-Ndi">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,27 +18,35 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="XxG-W7-mye" customClass="CustomTableViewCell" customModule="AC4" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="23"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XxG-W7-mye" id="vqS-OR-Czo" customClass="TableViewCell" customModule="AC4" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNt-WY-tgF">
-                                            <rect key="frame" x="166" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNt-WY-tgF">
+                                            <rect key="frame" x="48" y="12" width="41.333333333333343" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2e-PQ-Hts">
-                                            <rect key="frame" x="324" y="6" width="49" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </switch>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWt-dk-2uq" customClass="CheckboxButton" customModule="AC4" customModuleProvider="target">
+                                            <rect key="frame" x="137.33333333333337" y="4.0000000000000009" width="243.66666666666663" height="14.333333333333336"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title=""/>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="qWt-dk-2uq" secondAttribute="trailing" constant="12" id="1m9-jv-XgS"/>
+                                        <constraint firstItem="YNt-WY-tgF" firstAttribute="top" secondItem="vqS-OR-Czo" secondAttribute="top" constant="12" id="3yJ-Kv-XVh"/>
+                                        <constraint firstItem="qWt-dk-2uq" firstAttribute="top" secondItem="vqS-OR-Czo" secondAttribute="top" constant="4" id="Czs-qP-ndT"/>
+                                        <constraint firstItem="YNt-WY-tgF" firstAttribute="leading" secondItem="vqS-OR-Czo" secondAttribute="leading" constant="48" id="Ncy-Ze-ssf"/>
+                                        <constraint firstItem="qWt-dk-2uq" firstAttribute="leading" secondItem="YNt-WY-tgF" secondAttribute="trailing" constant="48" id="uuv-wm-UVX"/>
+                                        <constraint firstAttribute="bottom" secondItem="qWt-dk-2uq" secondAttribute="bottom" constant="4.6699999999999999" id="ysI-aD-sxy"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="Selector" destination="u2e-PQ-Hts" id="vAr-N2-y39"/>
+                                    <outlet property="Selector" destination="qWt-dk-2uq" id="YWV-Od-Cws"/>
                                     <outlet property="Title" destination="YNt-WY-tgF" id="U7n-MI-aNB"/>
                                 </connections>
                             </tableViewCell>

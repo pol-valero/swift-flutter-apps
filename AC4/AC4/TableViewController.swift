@@ -8,17 +8,14 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-
-    
-    var myData = [["Alex","Aina"],["Biel", "Bernat", "Berta"]]
     
     struct CellInfo {
-        let title: String
-        let selector: Bool
+        var title: String
+        var selector: Bool
     }
     
     
-    let structData: [CellInfo] = [
+    var structData: [CellInfo] = [
         CellInfo(title:"Alex", selector:false),
         CellInfo(title:"Aina", selector:false),
         CellInfo(title:"Biel", selector:false)
@@ -39,14 +36,10 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        //return myData.count
-        return 1;
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        //return myData[section].count
         return structData.count
     }
 
@@ -60,7 +53,7 @@ class TableViewController: UITableViewController {
         //cell.textLabel?.text = myData[indexPath.section][indexPath.row]
         
         cell.Title.text = dataS.title
-        cell.Selector.isOn = false
+        cell.Selector.isChecked = false
 
         return cell
     }
@@ -69,26 +62,27 @@ class TableViewController: UITableViewController {
     
     //Aquestes dues funcions ens permeten fer automaticament el "swipe to delete"
     // Override to support conditional editing of the table view.
-    /*override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         
         //return section == 0 ? "A" : "B"
 
         
         return true
-    }*/
+    }
     
 
     
     // Override to support editing the table view.
-   /* override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            structData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
-    }*/
+    }
     ///////////////////////////////////////
 
     /*
@@ -116,4 +110,33 @@ class TableViewController: UITableViewController {
     }
     */
 
+}
+
+class CheckboxButton: UIButton {
+    
+    // Images
+    let checkedImage = UIImage(named: "checkbox_checked")! as UIImage
+    let uncheckedImage = UIImage(named: "checkbox_unchecked")! as UIImage
+    
+    // Bool property
+    var isChecked: Bool = false {
+        didSet{
+            if isChecked == true {
+                self.setImage(checkedImage, for: UIControl.State.normal)
+            } else {
+                self.setImage(uncheckedImage, for: UIControl.State.normal)
+            }
+        }
+    }
+    
+    override func awakeFromNib() {
+        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
+        self.isChecked = false
+    }
+    
+    @objc func buttonClicked(sender: UIButton) {
+        if sender == self {
+            isChecked = !isChecked
+        }
+    }
 }
