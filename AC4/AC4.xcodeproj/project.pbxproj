@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F1B3F8A2AE82FFC00035AFE /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1B3F892AE82FFC00035AFE /* AddTaskViewController.swift */; };
 		F9BD85F22AE2E6B20065A898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BD85F12AE2E6B20065A898 /* AppDelegate.swift */; };
 		F9BD85F42AE2E6B20065A898 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BD85F32AE2E6B20065A898 /* SceneDelegate.swift */; };
 		F9BD85F92AE2E6B20065A898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BD85F72AE2E6B20065A898 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F1B3F892AE82FFC00035AFE /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		F9BD85EE2AE2E6B20065A898 /* AC4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AC4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9BD85F12AE2E6B20065A898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9BD85F32AE2E6B20065A898 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		F9BD85F02AE2E6B20065A898 /* AC4 */ = {
 			isa = PBXGroup;
 			children = (
+				7F1B3F892AE82FFC00035AFE /* AddTaskViewController.swift */,
 				F9BD86092AE2F3A90065A898 /* CustomTableViewCell.swift */,
 				F9BD86052AE2E8810065A898 /* TableViewController.swift */,
 				F9BD85F12AE2E6B20065A898 /* AppDelegate.swift */,
@@ -145,6 +148,7 @@
 				F9BD86062AE2E8810065A898 /* TableViewController.swift in Sources */,
 				F9BD860A2AE2F3A90065A898 /* CustomTableViewCell.swift in Sources */,
 				F9BD85F42AE2E6B20065A898 /* SceneDelegate.swift in Sources */,
+				7F1B3F8A2AE82FFC00035AFE /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
