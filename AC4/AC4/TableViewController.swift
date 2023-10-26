@@ -7,7 +7,17 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, AddTaskViewControllerDelegate {
+    
+    func addTaskViewControllerResponse(task: String?) {
+        print(task!)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? AddTaskViewController {
+            vc.delegate = self
+        }
+    }
     
     struct CellInfo {
         var title: String
