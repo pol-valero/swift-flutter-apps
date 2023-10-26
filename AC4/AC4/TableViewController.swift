@@ -10,7 +10,23 @@ import UIKit
 class TableViewController: UITableViewController, AddTaskViewControllerDelegate {
     
     func addTaskViewControllerResponse(task: String?) {
-        print(task!)
+        //print(task!)
+        
+        let newCell = CellInfo(title:task!, selector: false)
+        
+        structData.append(newCell)
+        
+        let encoder = JSONEncoder()
+        
+        do {
+            let encodedData = try encoder.encode(structData)
+            UserDefaults.standard.set(encodedData, forKey: "remainders")
+        } catch {
+            print("Error while encoding")
+        }
+        
+        
+        tableView.reloadData();
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -19,21 +35,29 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
         }
     }
     
-    struct CellInfo {
+    struct CellInfo: Codable {
         var title: String
         var selector: Bool
     }
     
     
-    var structData: [CellInfo] = [
-        CellInfo(title:"Alex", selector:false),
-        CellInfo(title:"Aina", selector:false),
-        CellInfo(title:"Biel", selector:false)
-
-    ]
+    var structData: [CellInfo] = []
     
     
     override func viewDidLoad() {
+        
+        let encodedData = UserDefaults.standard.data(forKey: "remainders")
+        
+        let decoder = JSONDecoder()
+        
+        if (encodedData != nil) {
+            do {
+                structData = try decoder.decode([CellInfo].self, from: encodedData!)
+            } catch {
+                print("Error while decoding")
+            }
+        }
+        
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -88,7 +112,19 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
         if editingStyle == .delete {
             // Delete the row from the data source
             structData.remove(at: indexPath.row)
+            
+            
+            let encoder = JSONEncoder()
+            
+            do {
+                let encodedData = try encoder.encode(structData)
+                UserDefaults.standard.set(encodedData, forKey: "remainders")
+            } catch {
+                print("Error while encoding")
+            }
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
