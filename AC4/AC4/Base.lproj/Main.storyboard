@@ -29,6 +29,9 @@
                                             <rect key="frame" x="313.33333333333331" y="4.0000000000000009" width="67.666666666666686" height="14.333333333333336"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title=""/>
+                                            <connections>
+                                                <action selector="checkButtonClicked:" destination="afy-cC-law" eventType="touchUpInside" id="QGk-Io-Erq"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNt-WY-tgF">
                                             <rect key="frame" x="48" y="12" width="41.333333333333343" height="21"/>

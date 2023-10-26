@@ -12,7 +12,7 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
     func addTaskViewControllerResponse(task: String?) {
         //print(task!)
         
-        let newCell = CellInfo(title:task!, selector: false)
+        let newCell = CellInfo(id: task.hashValue, title:task!, selector: false)
         
         structData.append(newCell)
         
@@ -36,6 +36,7 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
     }
     
     struct CellInfo: Codable {
+        var id: Int
         var title: String
         var selector: Bool
     }
@@ -87,7 +88,8 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
         //cell.textLabel?.text = myData[indexPath.section][indexPath.row]
         
         cell.Title.text = dataS.title
-        cell.Selector.isChecked = false
+        cell.Selector.isChecked = dataS.selector
+        cell.Selector.tag = dataS.id
 
         return cell
     }
@@ -156,6 +158,31 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
     }
     */
 
+    
+    @IBAction func checkButtonClicked(_ sender: UIButton) {
+        for i in structData.indices {
+            if (structData[i].id == sender.tag) {
+                if (structData[i].selector == true) {
+                    structData[i].selector = false
+                } else {
+                    structData[i].selector = true
+                }
+                print(structData[i].selector)
+            }
+        }
+        
+        
+        let encoder = JSONEncoder()
+        
+        do {
+            let encodedData = try encoder.encode(structData)
+            UserDefaults.standard.set(encodedData, forKey: "remainders")
+        } catch {
+            print("Error while encoding")
+        }
+        
+        
+    }
 }
 
 class CheckboxButton: UIButton {
