@@ -26,9 +26,7 @@ class AddTaskViewController: UIViewController {
     }
     
     
-    @IBAction func addButtonClicked(_ sender: UIButton) {
-        //print(taskTextField.text!)
-        
+    @IBAction func addButtonClicked(_ sender: UIButton) {        
         if (!taskTextField.text!.isEmpty) {
             self.delegate?.addTaskViewControllerResponse(task: taskTextField.text)
             self.navigationController?.popViewController(animated: true)
