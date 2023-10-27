@@ -10,9 +10,8 @@ import UIKit
 class TableViewController: UITableViewController, AddTaskViewControllerDelegate {
     
     func addTaskViewControllerResponse(task: String?) {
-        //print(task!)
         
-        let newCell = CellInfo(id: task.hashValue, title:task!, selector: false)
+        let newCell = CellInfo(id: task.hashValue, title:task!, isCompleted: false)
         
         structData.append(newCell)
         
@@ -38,7 +37,7 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
     struct CellInfo: Codable {
         var id: Int
         var title: String
-        var selector: Bool
+        var isCompleted: Bool
     }
     
     
@@ -88,8 +87,8 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
         //cell.textLabel?.text = myData[indexPath.section][indexPath.row]
         
         cell.Title.text = dataS.title
-        cell.Selector.isChecked = dataS.selector
-        cell.Selector.tag = dataS.id
+        cell.CheckboxButton.isChecked = dataS.isCompleted
+        cell.CheckboxButton.tag = dataS.id
 
         return cell
     }
@@ -162,12 +161,11 @@ class TableViewController: UITableViewController, AddTaskViewControllerDelegate 
     @IBAction func checkButtonClicked(_ sender: UIButton) {
         for i in structData.indices {
             if (structData[i].id == sender.tag) {
-                if (structData[i].selector == true) {
-                    structData[i].selector = false
+                if (structData[i].isCompleted == true) {
+                    structData[i].isCompleted = false
                 } else {
-                    structData[i].selector = true
+                    structData[i].isCompleted = true
                 }
-                print(structData[i].selector)
             }
         }
         

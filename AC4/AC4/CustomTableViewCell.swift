@@ -11,6 +11,6 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var Title: UILabel!
     
-    @IBOutlet weak var Selector: CheckboxButton!
+    @IBOutlet weak var CheckboxButton:CheckboxButton!
     
 }
