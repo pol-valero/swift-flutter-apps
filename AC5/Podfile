@@ -6,7 +6,7 @@ target 'AC5' do
   use_frameworks!
 
   # Pods for AC5
-
+  pod 'Lottie-ios'
 
 
 end
