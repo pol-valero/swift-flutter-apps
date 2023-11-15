@@ -30,22 +30,31 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var maxMinTempLabel: UILabel!
     
+    func changeWeatherLabels() {
+        cityLabel.text = "Barcelona"
+        tempLabel.text = weather.temp! + "ºC"
+        meteoLabel.text = weather.meteo! + " - " + weather.meteoDescription!
+        maxMinTempLabel.text = "Max. " + weather.maxTemp! + "ºC  " + "Min. " + weather.minTemp! + "ºC "
+    }
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
         
-        APIManager.shared.requestWeatherForCity("Barcelona", "es") { (response) in
-            self.weather.meteo = response.main
-            self.weather.meteoDescription = response.description
-            self.weather.temp = response.temp
-            self.weather.minTemp = response.tempMin
-            self.weather.maxTemp = response.tempMax
+        APIManager.shared.requestWeatherForCity("Barcelona", "es") {
+            (response) in DispatchQueue.main.async {
+                self.weather.meteo = response.main
+                self.weather.meteoDescription = response.description
+                self.weather.temp = response.temp
+                self.weather.minTemp = response.tempMin
+                self.weather.maxTemp = response.tempMax
+                
+                self.changeWeatherLabels()
+            }
         }
         
-        //TODO: 
-        //cityLabel.text = "Barcelona"
-        //print(weather.temp!)
-        //tempLabel.text = "prova";
+
+       
 
         APIManager.shared.requestForecastForCity("Barcelona", "es") { (response) in
             

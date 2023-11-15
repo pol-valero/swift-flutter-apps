@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh3-K0-ShH">
-                                <rect key="frame" x="100" y="187" width="192" height="72"/>
+                                <rect key="frame" x="80" y="187" width="232" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,8 +44,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jh3-K0-ShH" secondAttribute="trailing" constant="101" id="06E-Va-unf"/>
-                            <constraint firstItem="Jh3-K0-ShH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="3XA-4i-0av"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jh3-K0-ShH" secondAttribute="trailing" constant="81" id="06E-Va-unf"/>
+                            <constraint firstItem="Jh3-K0-ShH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="3XA-4i-0av"/>
                             <constraint firstItem="su6-6x-N6q" firstAttribute="top" secondItem="Jh3-K0-ShH" secondAttribute="bottom" constant="10" id="ACK-7s-8hR"/>
                             <constraint firstItem="NYz-ml-8Oj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="87" id="BRJ-Hw-A6p"/>
                             <constraint firstItem="su6-6x-N6q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Chg-oX-dD9"/>
