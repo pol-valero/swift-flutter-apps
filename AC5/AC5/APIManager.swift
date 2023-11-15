@@ -11,9 +11,9 @@ import Foundation
 
 
 //https://openweathermap.org/current
-private let weatherBaseURL = "https://api.openweathermap.org/data/2.5/weather?&appid=14d86d120590786888ce766c6ff78bb1&q="
+private let weatherBaseURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=14d86d120590786888ce766c6ff78bb1&q="
 
-private let forecastBaseURL = "https://api.openweathermap.org/data/2.5/forecast?appid=14d86d120590786888ce766c6ff78bb1&q="
+private let forecastBaseURL = "https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=14d86d120590786888ce766c6ff78bb1&q="
 
 class APIManager {
     static let shared = APIManager()
@@ -47,8 +47,8 @@ class APIManager {
                     let desc = (data!["weather"]! as! Array<Dictionary<String, Any>>).first!["description"]!
                     
                     let temp = "\((data!["main"]! as! Dictionary<String, Any>)["temp"]!)"
-                    let miTp = "\((data!["main"]! as! Dictionary<String, Any>)["temp_max"]!)"
-                    let mxTp = "\((data!["main"]! as! Dictionary<String, Any>)["temp_min"]!)"
+                    let mxTp = "\((data!["main"]! as! Dictionary<String, Any>)["temp_max"]!)"
+                    let miTp = "\((data!["main"]! as! Dictionary<String, Any>)["temp_min"]!)"
 
                     let responseData = WeatherResponseData(main: main as! String, description: desc as! String, temp: temp, tempMax: mxTp, tempMin: miTp)
                     
@@ -90,7 +90,7 @@ class APIManager {
                         for item in list {
                             if (item["dt_txt"] as! String).contains("00:00:00") {
                                 let main = (item["weather"]! as! Array<Dictionary<String, Any>>).first!["main"]!
-                                let description = (item["weather"]! as! Array<Dictionary<String, Any>>).first!["description"]! 
+                                let description = (item["weather"]! as! Array<Dictionary<String, Any>>).first!["description"]!
                                 let temp = "\((item["main"]! as! Dictionary<String, Any>)["temp"]!)"
                                 let tempMin = "\((item["main"]! as! Dictionary<String, Any>)["temp_max"]!)"
                                 let tempMax = "\((item["main"]! as! Dictionary<String, Any>)["temp_min"]!)"
