@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class ViewController: UIViewController {
     
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var d5TempLabel: UILabel!
     /*/               */
     
+    @IBOutlet weak var animationView: LottieAnimationView!
     
     
     
@@ -87,6 +89,36 @@ class ViewController: UIViewController {
         d5TempLabel.text = weatherForecast[4].temp! + "ºC"
     }
     
+    func changeWeatherAnimation(meteoType: String) {
+        
+        var animationName: String
+        
+        switch meteoType {
+            case "Clouds":
+                animationName = "clouds_animation"
+            case "Clear":
+                animationName = "sun_animation"
+            case "Snow":
+                animationName = "snow_animation"
+            case "Rain":
+                animationName = "rain_animation"
+            case "Thunderstorm":
+                animationName = "thunderstorm_animation"
+            default:
+            animationName = "sun_animation"
+            
+        }
+        
+        let subAnimationView = LottieAnimationView(name:animationName)
+        animationView.contentMode = .scaleAspectFit
+        
+        subAnimationView.loopMode = .loop
+        subAnimationView.animationSpeed = 0.5
+        animationView.addSubview(subAnimationView)
+        subAnimationView.frame = animationView.bounds
+        subAnimationView.play()
+    }
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -102,6 +134,7 @@ class ViewController: UIViewController {
                 //Only if we receive a valid response, we display the information
                 if (self.weather.meteo != nil) {
                     self.changeWeatherLabels()
+                    self.changeWeatherAnimation(meteoType: self.weather.meteo!)
                 }
             }
         }

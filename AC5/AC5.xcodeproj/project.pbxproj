@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2602886F10952BEFDE1527F5 /* Pods_AC5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FBF4B52F476537320BD42 /* Pods_AC5.framework */; };
 		F998658B2B04DD0D00DE43C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F998658A2B04DD0D00DE43C6 /* AppDelegate.swift */; };
 		F998658D2B04DD0D00DE43C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F998658C2B04DD0D00DE43C6 /* SceneDelegate.swift */; };
 		F998658F2B04DD0D00DE43C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F998658E2B04DD0D00DE43C6 /* ViewController.swift */; };
@@ -14,9 +15,17 @@
 		F99865942B04DD0E00DE43C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99865932B04DD0E00DE43C6 /* Assets.xcassets */; };
 		F99865972B04DD0E00DE43C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F99865952B04DD0E00DE43C6 /* LaunchScreen.storyboard */; };
 		F998659F2B04DD5D00DE43C6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F998659E2B04DD5D00DE43C6 /* APIManager.swift */; };
+		F99865A12B063D4300DE43C6 /* rain_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F99865A02B063D4300DE43C6 /* rain_animation.json */; };
+		F99865A32B0659CB00DE43C6 /* sun_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F99865A22B0659CB00DE43C6 /* sun_animation.json */; };
+		F99865A72B065B4C00DE43C6 /* snow_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F99865A42B065B4C00DE43C6 /* snow_animation.json */; };
+		F99865A82B065B4C00DE43C6 /* thunderstorm_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F99865A52B065B4C00DE43C6 /* thunderstorm_animation.json */; };
+		F99865A92B065B4C00DE43C6 /* clouds_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F99865A62B065B4C00DE43C6 /* clouds_animation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		260FBF4B52F476537320BD42 /* Pods_AC5.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC5.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7642FF66E787C9526A106A6C /* Pods-AC5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC5.debug.xcconfig"; path = "Target Support Files/Pods-AC5/Pods-AC5.debug.xcconfig"; sourceTree = "<group>"; };
+		B9C29959CDF6143A5E34FFA1 /* Pods-AC5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC5.release.xcconfig"; path = "Target Support Files/Pods-AC5/Pods-AC5.release.xcconfig"; sourceTree = "<group>"; };
 		F99865872B04DD0D00DE43C6 /* AC5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AC5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F998658A2B04DD0D00DE43C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F998658C2B04DD0D00DE43C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +35,11 @@
 		F99865962B04DD0E00DE43C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F99865982B04DD0E00DE43C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F998659E2B04DD5D00DE43C6 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		F99865A02B063D4300DE43C6 /* rain_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rain_animation.json; sourceTree = "<group>"; };
+		F99865A22B0659CB00DE43C6 /* sun_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sun_animation.json; sourceTree = "<group>"; };
+		F99865A42B065B4C00DE43C6 /* snow_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snow_animation.json; sourceTree = "<group>"; };
+		F99865A52B065B4C00DE43C6 /* thunderstorm_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = thunderstorm_animation.json; sourceTree = "<group>"; };
+		F99865A62B065B4C00DE43C6 /* clouds_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clouds_animation.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2602886F10952BEFDE1527F5 /* Pods_AC5.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		131AD82BE9EDED4D6E7042A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				260FBF4B52F476537320BD42 /* Pods_AC5.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6BA12DC12BAC99F8704E0294 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7642FF66E787C9526A106A6C /* Pods-AC5.debug.xcconfig */,
+				B9C29959CDF6143A5E34FFA1 /* Pods-AC5.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F998657E2B04DD0C00DE43C6 = {
 			isa = PBXGroup;
 			children = (
 				F99865892B04DD0D00DE43C6 /* AC5 */,
 				F99865882B04DD0D00DE43C6 /* Products */,
+				6BA12DC12BAC99F8704E0294 /* Pods */,
+				131AD82BE9EDED4D6E7042A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +92,15 @@
 		F99865892B04DD0D00DE43C6 /* AC5 */ = {
 			isa = PBXGroup;
 			children = (
+				F99865A22B0659CB00DE43C6 /* sun_animation.json */,
+				F99865A02B063D4300DE43C6 /* rain_animation.json */,
 				F998659E2B04DD5D00DE43C6 /* APIManager.swift */,
 				F998658A2B04DD0D00DE43C6 /* AppDelegate.swift */,
 				F998658C2B04DD0D00DE43C6 /* SceneDelegate.swift */,
 				F998658E2B04DD0D00DE43C6 /* ViewController.swift */,
+				F99865A62B065B4C00DE43C6 /* clouds_animation.json */,
+				F99865A42B065B4C00DE43C6 /* snow_animation.json */,
+				F99865A52B065B4C00DE43C6 /* thunderstorm_animation.json */,
 				F99865902B04DD0D00DE43C6 /* Main.storyboard */,
 				F99865932B04DD0E00DE43C6 /* Assets.xcassets */,
 				F99865952B04DD0E00DE43C6 /* LaunchScreen.storyboard */,
@@ -77,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F998659B2B04DD0E00DE43C6 /* Build configuration list for PBXNativeTarget "AC5" */;
 			buildPhases = (
+				CF6D4EE42374DE6F753CAD0D /* [CP] Check Pods Manifest.lock */,
 				F99865832B04DD0D00DE43C6 /* Sources */,
 				F99865842B04DD0D00DE43C6 /* Frameworks */,
 				F99865852B04DD0D00DE43C6 /* Resources */,
+				0BAA95BB3F6C6C8A6B5250CE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,13 +169,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99865A82B065B4C00DE43C6 /* thunderstorm_animation.json in Resources */,
+				F99865A12B063D4300DE43C6 /* rain_animation.json in Resources */,
 				F99865972B04DD0E00DE43C6 /* LaunchScreen.storyboard in Resources */,
 				F99865942B04DD0E00DE43C6 /* Assets.xcassets in Resources */,
 				F99865922B04DD0D00DE43C6 /* Main.storyboard in Resources */,
+				F99865A32B0659CB00DE43C6 /* sun_animation.json in Resources */,
+				F99865A92B065B4C00DE43C6 /* clouds_animation.json in Resources */,
+				F99865A72B065B4C00DE43C6 /* snow_animation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BAA95BB3F6C6C8A6B5250CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AC5/Pods-AC5-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AC5/Pods-AC5-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AC5/Pods-AC5-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF6D4EE42374DE6F753CAD0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AC5-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F99865832B04DD0D00DE43C6 /* Sources */ = {
@@ -286,6 +374,7 @@
 		};
 		F998659C2B04DD0E00DE43C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7642FF66E787C9526A106A6C /* Pods-AC5.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -313,6 +402,7 @@
 		};
 		F998659D2B04DD0E00DE43C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9C29959CDF6143A5E34FFA1 /* Pods-AC5.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -136,6 +136,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TN-7O-nTk" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="139" y="71" width="115" height="67"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2TN-7O-nTk" secondAttribute="height" multiplier="115:67" id="8m6-7w-C6N"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -153,9 +160,10 @@
                             <constraint firstItem="bV8-Oj-VeS" firstAttribute="top" secondItem="f8L-Me-wJ0" secondAttribute="bottom" constant="13" id="8eh-Df-WfE"/>
                             <constraint firstItem="su6-6x-N6q" firstAttribute="top" secondItem="Jh3-K0-ShH" secondAttribute="bottom" constant="10" id="ACK-7s-8hR"/>
                             <constraint firstItem="xbm-z8-bpA" firstAttribute="leading" secondItem="A8O-Xe-TVV" secondAttribute="trailing" constant="30" id="AZ5-EO-bMe"/>
-                            <constraint firstItem="NYz-ml-8Oj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="87" id="BRJ-Hw-A6p"/>
                             <constraint firstItem="su6-6x-N6q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Chg-oX-dD9"/>
+                            <constraint firstItem="NYz-ml-8Oj" firstAttribute="top" secondItem="2TN-7O-nTk" secondAttribute="bottom" constant="8" symbolic="YES" id="Dwf-Gf-pCU"/>
                             <constraint firstItem="Ceo-9U-VLg" firstAttribute="top" secondItem="A8O-Xe-TVV" secondAttribute="bottom" constant="13" id="Ero-LF-Zqm"/>
+                            <constraint firstItem="2TN-7O-nTk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="Gpq-bA-SYt"/>
                             <constraint firstItem="sPf-L9-LjV" firstAttribute="leading" secondItem="uKF-uu-Cw6" secondAttribute="trailing" constant="30" id="HDv-FD-0Vi"/>
                             <constraint firstItem="cWg-7N-cN0" firstAttribute="width" secondItem="eh8-AM-yPP" secondAttribute="width" id="HTT-cn-xFL"/>
                             <constraint firstItem="sFI-DF-ane" firstAttribute="centerY" secondItem="bV8-Oj-VeS" secondAttribute="centerY" id="HxQ-ER-m7w"/>
@@ -163,6 +171,7 @@
                             <constraint firstItem="YDU-cE-jN7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Itv-ZS-uLQ"/>
                             <constraint firstItem="bV8-Oj-VeS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="LOF-sa-Pj4"/>
                             <constraint firstItem="Vqo-D2-lGG" firstAttribute="centerY" secondItem="JlB-cu-fSh" secondAttribute="centerY" id="M36-tG-Fjm"/>
+                            <constraint firstItem="2TN-7O-nTk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="MVB-BN-3U2"/>
                             <constraint firstItem="ORi-US-qhK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="N4n-gf-hwU"/>
                             <constraint firstItem="YDU-cE-jN7" firstAttribute="top" secondItem="su6-6x-N6q" secondAttribute="bottom" constant="5" id="Ngf-5F-abp"/>
                             <constraint firstItem="A8O-Xe-TVV" firstAttribute="top" secondItem="WJ7-IT-Nsw" secondAttribute="bottom" constant="13" id="NnY-qu-gd2"/>
@@ -189,6 +198,7 @@
                             <constraint firstItem="sFI-DF-ane" firstAttribute="width" secondItem="bV8-Oj-VeS" secondAttribute="width" id="h0r-X8-vrD"/>
                             <constraint firstItem="JlB-cu-fSh" firstAttribute="centerY" secondItem="WJ7-IT-Nsw" secondAttribute="centerY" id="iOF-AJ-OR3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MY6-g9-Jci" secondAttribute="trailing" constant="30" id="j6O-f4-luN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2TN-7O-nTk" secondAttribute="trailing" constant="139" id="jua-vh-Ixt"/>
                             <constraint firstItem="Vqo-D2-lGG" firstAttribute="width" secondItem="JlB-cu-fSh" secondAttribute="width" id="kdM-A1-LKA"/>
                             <constraint firstItem="Nba-cc-2M7" firstAttribute="width" secondItem="sFI-DF-ane" secondAttribute="width" id="kjf-Oc-Exa"/>
                             <constraint firstItem="Ceo-9U-VLg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="meu-b1-cbg"/>
@@ -204,6 +214,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationView" destination="2TN-7O-nTk" id="tcf-X3-niu"/>
                         <outlet property="cityLabel" destination="NYz-ml-8Oj" id="nwn-0x-1FQ"/>
                         <outlet property="d1DateLabel" destination="bV8-Oj-VeS" id="QvK-SS-IbS"/>
                         <outlet property="d1MeteoDescriptionLabel" destination="sFI-DF-ane" id="Oan-9i-w9f"/>
