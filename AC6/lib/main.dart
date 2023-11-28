@@ -14,6 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Calculator',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        // use the same font as the iOS calculator
+        fontFamily: 'SF Pro Display',
         useMaterial3: true,
       ),
       home: const CalculatorPage(),
@@ -44,13 +46,15 @@ class _CalculatorPageState extends State<CalculatorPage> {
           children: [
             Expanded(
               child: Container(
+                // space between the text and the border
+                padding: const EdgeInsets.fromLTRB(12, 6, 12, 6),
                 alignment: Alignment.bottomRight,
                 child: Text(
                   labelValue,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 80,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 70,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
               ),
@@ -58,27 +62,30 @@ class _CalculatorPageState extends State<CalculatorPage> {
             Row(
               children: [
                 buttonOperation('AC'),
-                buttonOperation('+/-'),
+                buttonOperation('⁺∕₋'),
                 buttonOperation('%'),
                 buttonOperation('÷'),
               ],
             ),
+            const SizedBox(height: 12),
             Row(
               children: [
                 buttonNumber('7'),
                 buttonNumber('8'),
                 buttonNumber('9'),
-                buttonOperation('X'),
+                buttonOperation('×'),
               ],
             ),
+            const SizedBox(height: 12),
             Row(
               children: [
                 buttonNumber('4'),
                 buttonNumber('5'),
                 buttonNumber('6'),
-                buttonOperation('-'),
+                buttonOperation('−'),
               ],
             ),
+            const SizedBox(height: 12),
             Row(
               children: [
                 buttonNumber('1'),
@@ -87,6 +94,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 buttonOperation('+'),
               ],
             ),
+            const SizedBox(height: 12),
             Row(
               children: [
                 buttonZero('0'),
@@ -118,7 +126,7 @@ Widget buttonNumber(String value) {
         value,
         style: const TextStyle(
           color: Colors.white,
-          fontSize: 30,
+          fontSize: 35,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -134,7 +142,7 @@ Widget buttonOperation(String value) {
   // put a hex color variable
   Color btnBackground = Colors.orange;
   Color btnForeground = Colors.white;
-  if (value == 'AC' || value == '+/-' || value == '%') {
+  if (value == 'AC' || value == '⁺∕₋' || value == '%') {
     btnBackground = Colors.grey[400]!;
     btnForeground = Colors.black;
   }
@@ -152,7 +160,7 @@ Widget buttonOperation(String value) {
         value,
         style: TextStyle(
           color: btnForeground,
-          fontSize: 30,
+          fontSize: 35,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -161,21 +169,24 @@ Widget buttonOperation(String value) {
 }
 
 Widget buttonZero(String value) {
+  // Double its size and put the text to the left and respect the margin
   return Expanded(
+    flex: 2,
     child: TextButton(
       onPressed: () {
-        buttonOperationPressed(value);
+        buttonNumberPressed(value);
       },
       style: TextButton.styleFrom(
         backgroundColor: Colors.grey[850],
-        padding: const EdgeInsets.fromLTRB(15, 15, 120, 15),
+        padding: const EdgeInsets.fromLTRB(34, 15, 15, 15),
         shape: const StadiumBorder(),
+        alignment: Alignment.centerLeft,
       ),
       child: Text(
         value,
         style: const TextStyle(
           color: Colors.white,
-          fontSize: 30,
+          fontSize: 35,
           fontWeight: FontWeight.bold,
         ),
       ),
