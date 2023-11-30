@@ -1,3 +1,6 @@
+import 'dart:core';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,10 +34,18 @@ class CalculatorPage extends StatefulWidget {
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
+
   String labelValue = '0';
+
+  double resultValue = 0;
   double actualValue1 = 0;
   double actualValue2 = 0;
-  String operation = '';
+  bool hasOperation = false;
+  bool hasComma = false;
+  int commaCounter = 0;
+  int numDigitsEntered = 0;
+  bool resultHasDecimals = false;
+  String lastOperation= '';
 
   @override
   Widget build(BuildContext context) {
@@ -109,91 +120,224 @@ class _CalculatorPageState extends State<CalculatorPage> {
   }
 
 
-}
-
-Widget buttonNumber(String value) {
-  return Expanded(
-    child: TextButton(
-      onPressed: () {
-        buttonNumberPressed(value);
-      },
-      style: TextButton.styleFrom(
-        backgroundColor: Colors.grey[850],
-        padding: const EdgeInsets.all(15),
-        shape: const CircleBorder(),
-      ),
-      child: Text(
-        value,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 35,
-          fontWeight: FontWeight.bold,
+  Widget buttonNumber(String value) {
+    return Expanded(
+      child: TextButton(
+        onPressed: () {
+          buttonNumberPressed(value);
+        },
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.grey[850],
+          padding: const EdgeInsets.all(15),
+          shape: const CircleBorder(),
+        ),
+        child: Text(
+          value,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-    ),
-  );
-}
-
-void buttonNumberPressed(String value) {
-  print(value);
-}
-
-Widget buttonOperation(String value) {
-  // put a hex color variable
-  Color btnBackground = Colors.orange;
-  Color btnForeground = Colors.white;
-  if (value == 'AC' || value == '⁺∕₋' || value == '%') {
-    btnBackground = Colors.grey[400]!;
-    btnForeground = Colors.black;
+    );
   }
-  return Expanded(
-    child: TextButton(
-      onPressed: () {
-        buttonOperationPressed(value);
-      },
-      style: TextButton.styleFrom(
-        backgroundColor: btnBackground,
-        padding: const EdgeInsets.all(15),
-        shape: const CircleBorder(),
-      ),
-      child: Text(
-        value,
-        style: TextStyle(
-          color: btnForeground,
-          fontSize: 35,
-          fontWeight: FontWeight.bold,
+
+  Widget buttonOperation(String value) {
+    // put a hex color variable
+    Color btnBackground = Colors.orange;
+    Color btnForeground = Colors.white;
+    if (value == 'AC' || value == '⁺∕₋' || value == '%') {
+      btnBackground = Colors.grey[400]!;
+      btnForeground = Colors.black;
+    }
+    return Expanded(
+      child: TextButton(
+        onPressed: () {
+          buttonOperationPressed(value);
+        },
+        style: TextButton.styleFrom(
+          backgroundColor: btnBackground,
+          padding: const EdgeInsets.all(15),
+          shape: const CircleBorder(),
+        ),
+        child: Text(
+          value,
+          style: TextStyle(
+            color: btnForeground,
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 
-Widget buttonZero(String value) {
-  // Double its size and put the text to the left and respect the margin
-  return Expanded(
-    flex: 2,
-    child: TextButton(
-      onPressed: () {
-        buttonNumberPressed(value);
-      },
-      style: TextButton.styleFrom(
-        backgroundColor: Colors.grey[850],
-        padding: const EdgeInsets.fromLTRB(34, 15, 15, 15),
-        shape: const StadiumBorder(),
-        alignment: Alignment.centerLeft,
-      ),
-      child: Text(
-        value,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 35,
-          fontWeight: FontWeight.bold,
+  Widget buttonZero(String value) {
+    // Double its size and put the text to the left and respect the margin
+    return Expanded(
+      flex: 2,
+      child: TextButton(
+        onPressed: () {
+          buttonNumberPressed(value);
+        },
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.grey[850],
+          padding: const EdgeInsets.fromLTRB(34, 15, 15, 15),
+          shape: const StadiumBorder(),
+          alignment: Alignment.centerLeft,
+        ),
+        child: Text(
+          value,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
+
+  void clearCalculation() {
+    resultValue = 0;
+    actualValue1 = 0;
+    actualValue2 = 0;
+    hasOperation = false;
+    hasComma = false;
+    commaCounter = 0;
+    updateResultLabel(0);
+    numDigitsEntered = 0;
+    resultHasDecimals = false;
+  }
+
+  void calculateResult() {
+    if (hasOperation) {
+      performOperation(lastOperation);
+      updateResultLabel(resultValue);
+    } else {
+      updateResultLabel(resultValue);
+    }
+    hasComma = false;
+    commaCounter = 0;
+    hasOperation = false;
+  }
+
+  void performOperation (String operator) {
+    print("operator perform:$operator");
+    switch (operator) {
+      case '+':
+        resultValue = actualValue1 + actualValue2;
+        break;
+      case '−':
+        resultValue = actualValue1 - actualValue2;
+        break;
+      case '×':
+        resultValue = actualValue1 * actualValue2;
+        break;
+      case '÷':
+        resultValue = actualValue1 / actualValue2;
+        break;
+      default:
+        resultValue = 0;
+    }
+
+    // check if the result has decimals
+    if (resultValue % 1 == 0) {
+      resultHasDecimals = false;
+    } else {
+      resultHasDecimals = true;
+    }
+
+    actualValue1 = resultValue;
+    actualValue2 = 0;
+
+  }
+
+  void operatorClicked(String operator) {
+    numDigitsEntered = 0;
+    resultHasDecimals = false;
+
+    // TAG 1 = + ; 2 = - ; 3 = x ; 4 = /
+    if (hasOperation) {
+      print("operation performed");
+      performOperation(operator);
+      updateResultLabel(resultValue);
+    } else {
+      hasOperation = true;
+    }
+    hasComma = false;
+    commaCounter = 0;
+  }
+
+  void buttonOperationPressed(String value) {
+
+    //The +, -, x, /, +-, =, % has been pressed
+
+    switch (value) {
+
+      case 'AC':
+        clearCalculation();
+        break;
+      case '⁺∕₋':
+        //plusMinusClicked();
+        break;
+      case '%':
+        //percentageCalculation();
+        break;
+      case '÷':
+        operatorClicked('÷');
+        break;
+      case '×':
+        operatorClicked('×');
+        break;
+      case '−':
+        operatorClicked('−');
+        break;
+      case '+':
+        operatorClicked('+');
+        break;
+      case '=':
+        calculateResult();
+        break;
+    }
+    lastOperation = value;
+
+  }
+
+  void updateResultLabel(double value) {
+    labelValue =  value.toString();
+    setState(() {});
+  }
+
+  void buttonNumberPressed(String value) {
+
+    numDigitsEntered += 1;
+
+    // TAG = Number value
+    if (hasOperation) {
+      if (hasComma) {
+        commaCounter += 1;
+        actualValue2 = actualValue2 + double.parse(value) / pow(10, commaCounter);
+        updateResultLabel(actualValue2);
+      } else {
+        actualValue2 = actualValue2 * 10 + double.parse(value);
+        updateResultLabel(actualValue2);
+      }
+
+    } else {
+      if (numDigitsEntered <= 9) {
+        if (hasComma) {
+          commaCounter += 1;
+          actualValue1 = actualValue1 + double.parse(value) / pow(10,commaCounter);
+          updateResultLabel(actualValue1);
+        } else {
+          actualValue1 = actualValue1 * 10 + double.parse(value);
+          updateResultLabel(actualValue1);
+        }
+      }
+    }
+  }
+
 }
 
-void buttonOperationPressed(String value) {
-  print(value);
-}
