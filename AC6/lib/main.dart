@@ -260,7 +260,6 @@ class _CalculatorPageState extends State<CalculatorPage> {
 
     // TAG 1 = + ; 2 = - ; 3 = x ; 4 = /
     if (hasOperation) {
-      print("operation performed");
       performOperation(operator);
       updateResultLabel(resultValue);
     } else {
@@ -268,6 +267,35 @@ class _CalculatorPageState extends State<CalculatorPage> {
     }
     hasComma = false;
     commaCounter = 0;
+  }
+
+  void plusMinusClicked() {
+    if (hasOperation) {
+      actualValue2 = actualValue2 * -1;
+      updateResultLabel(actualValue2);
+    } else {
+      actualValue1 = actualValue1 * -1;
+      updateResultLabel(actualValue1);
+    }
+
+    hasComma = false;
+    commaCounter = 0;
+  }
+
+  void percentageCalculation() {
+    numDigitsEntered = 0;
+
+    if (hasOperation) {
+      actualValue2 = actualValue2 / 100;
+      updateResultLabel(actualValue2);
+    } else {
+      actualValue1 = actualValue1 / 100;
+      updateResultLabel(actualValue1);
+    }
+
+    hasComma = false;
+    commaCounter = 0;
+
   }
 
   void buttonOperationPressed(String value) {
@@ -280,10 +308,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
         clearCalculation();
         break;
       case '⁺∕₋':
-        //plusMinusClicked();
+        plusMinusClicked();
         break;
       case '%':
-        //percentageCalculation();
+        percentageCalculation();
         break;
       case '÷':
         operatorClicked('÷');
@@ -306,34 +334,56 @@ class _CalculatorPageState extends State<CalculatorPage> {
   }
 
   void updateResultLabel(double value) {
-    labelValue =  value.toString();
+
+    //if value has no decimals, then we show it as an integer
+    if (value % 1 == 0) {
+      labelValue = value.toInt().toString();
+    } else {
+      labelValue = value.toString();
+    }
+
+    //labelValue =  value.toString();
+
     setState(() {});
   }
 
-  void buttonNumberPressed(String value) {
-
-    numDigitsEntered += 1;
-
-    // TAG = Number value
-    if (hasOperation) {
-      if (hasComma) {
-        commaCounter += 1;
-        actualValue2 = actualValue2 + double.parse(value) / pow(10, commaCounter);
-        updateResultLabel(actualValue2);
-      } else {
-        actualValue2 = actualValue2 * 10 + double.parse(value);
-        updateResultLabel(actualValue2);
-      }
-
+  void flotantClicked() {
+    if (resultHasDecimals) {
+      hasComma = false;
     } else {
-      if (numDigitsEntered <= 9) {
+      //If no decimals are already in the result, we can add decimals
+      hasComma = true;
+    }
+  }
+
+  void buttonNumberPressed(String value) {
+    if (value == '.') {
+      flotantClicked();
+    } else {
+      numDigitsEntered += 1;
+
+      // TAG = Number value
+      if (hasOperation) {
         if (hasComma) {
           commaCounter += 1;
-          actualValue1 = actualValue1 + double.parse(value) / pow(10,commaCounter);
-          updateResultLabel(actualValue1);
+          actualValue2 =
+              actualValue2 + double.parse(value) / pow(10, commaCounter);
+          updateResultLabel(actualValue2);
         } else {
-          actualValue1 = actualValue1 * 10 + double.parse(value);
-          updateResultLabel(actualValue1);
+          actualValue2 = actualValue2 * 10 + double.parse(value);
+          updateResultLabel(actualValue2);
+        }
+      } else {
+        if (numDigitsEntered <= 7) {
+          if (hasComma) {
+            commaCounter += 1;
+            actualValue1 =
+                actualValue1 + double.parse(value) / pow(10, commaCounter);
+            updateResultLabel(actualValue1);
+          } else {
+            actualValue1 = actualValue1 * 10 + double.parse(value);
+            updateResultLabel(actualValue1);
+          }
         }
       }
     }
