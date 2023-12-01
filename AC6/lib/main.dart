@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -60,8 +61,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 // space between the text and the border
                 padding: const EdgeInsets.fromLTRB(12, 6, 12, 6),
                 alignment: Alignment.bottomRight,
-                child: Text(
+                child: AutoSizeText(
                   labelValue,
+                  maxLines: 1,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 70,
@@ -374,7 +376,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
           updateResultLabel(actualValue2);
         }
       } else {
-        if (numDigitsEntered <= 7) {
+        if (numDigitsEntered <= 9) {
           if (hasComma) {
             commaCounter += 1;
             actualValue1 =
