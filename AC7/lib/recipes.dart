@@ -1,3 +1,4 @@
+import 'package:ac7/add_recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:ac7/recipe_info.dart';
 
@@ -43,7 +44,17 @@ class _RecipesViewState extends State<RecipesView>  {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const RecipesView()),
+                MaterialPageRoute(
+                    builder: (context) => AddRecipeView(
+                      recipeAdded: (recipe) {
+                        if (recipe.name.isNotEmpty && recipe.description.isNotEmpty) {
+                          setState(() {
+                            recipes.add(recipe);
+                          });
+                        }
+                      },
+                    ),
+                    ),
               );
             },
             icon: const Icon(Icons.add),

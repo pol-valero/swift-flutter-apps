@@ -1,4 +1,3 @@
-import 'package:ac7/recipe_info.dart';
 import 'package:ac7/recipes.dart';
 import 'package:flutter/material.dart';
 
