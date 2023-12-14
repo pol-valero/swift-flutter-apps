@@ -27,33 +27,38 @@ class _AddRecipeViewState extends State<AddRecipeView> {
         title: Text("Add recipe"),
       ),
       body: SafeArea(
+        child: Container(
+          margin: const EdgeInsets.all(20),
 
         child: Column(
+
           children: [
-            //Text field for the recipe name
             TextFormField(
               decoration: const InputDecoration(labelText: 'Recipe name'),
               controller: nameField,
+              maxLength: 20,
             ),
-            //Text field for the recipe description
             TextFormField(
               decoration: const InputDecoration(labelText: 'Recipe description'),
               controller: descriptionField,
+              maxLength: 40,
             ),
             //Button to add the recipe
             ElevatedButton(
               onPressed: () {
                 //Add the recipe
                 if (nameField.text.isNotEmpty && descriptionField.text.isNotEmpty) {
-                  widget.recipeAdded(Recipe(name: nameField.text, description: descriptionField.text));
+                  widget.recipeAdded(Recipe(name: nameField.text,
+                      description: descriptionField.text));
+                  //Go back to the previous screen
+                  Navigator.pop(context);
                 }
-                //Go back to the previous screen
-                Navigator.pop(context);
               },
               child: const Text('Add recipe'),
             ),
           ],
         ),
+      ),
       ),
     );
   }

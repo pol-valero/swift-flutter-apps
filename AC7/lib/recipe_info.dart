@@ -24,10 +24,9 @@ class _RecipeInfoViewState extends State<RecipeInfoView> {
         title: Text(widget.recipe.name),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Text(widget.recipe.description),
-          ],
+        child: Container(
+          margin: const EdgeInsets.all(20),
+          child: Text(widget.recipe.description),
         ),
       ),
     );
