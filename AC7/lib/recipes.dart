@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ac7/recipe_info.dart';
 
 class RecipesView extends StatefulWidget {
   const RecipesView({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _RecipesViewState extends State<RecipesView>  {
     ),
     const Recipe(
       name: 'Recipe 2',
-      description: 'Description',
+      description: 'Description22',
     ),
     const Recipe(
       name: 'Recipe 3',
@@ -103,7 +104,8 @@ class _RecipesViewState extends State<RecipesView>  {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RecipesView()),
+                  MaterialPageRoute(builder: (context) => RecipeInfoView(recipe: recipes[index]),
+                  ),
                 );
               },
             );
