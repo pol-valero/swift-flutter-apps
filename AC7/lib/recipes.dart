@@ -1,6 +1,8 @@
 import 'package:ac7/add_recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:ac7/recipe_info.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class RecipesView extends StatefulWidget {
   const RecipesView({Key? key}) : super(key: key);
@@ -11,7 +13,7 @@ class RecipesView extends StatefulWidget {
 
 class _RecipesViewState extends State<RecipesView>  {
 
-  var recipes = [
+  /*var recipes = [
     const Recipe(
       name: 'Recipe 1',
       description: 'Description',
@@ -32,7 +34,21 @@ class _RecipesViewState extends State<RecipesView>  {
       name: 'Recipe 5',
       description: 'Description',
     ),
-  ];
+  ];*/
+
+  List<Recipe> recipes = List.empty(growable: true);
+
+  @override
+  void initState() {
+    print("initState");
+    super.initState();
+    //recipes = loadRecipes()
+    //get first element of stream
+    loadRecipes().first.then((value) {
+        recipes = value;
+        setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +66,7 @@ class _RecipesViewState extends State<RecipesView>  {
                         if (recipe.name.isNotEmpty && recipe.description.isNotEmpty) {
                           setState(() {
                             recipes.add(recipe);
+                            addRecipe(recipe);
                           });
                         }
                       },
@@ -125,7 +142,23 @@ class _RecipesViewState extends State<RecipesView>  {
       ),
     );
   }
+
+  Stream<List<Recipe>> loadRecipes() {
+    return FirebaseFirestore.instance.collection('recipes').snapshots().map((snapshot) {
+      return snapshot.docs.map((doc) => Recipe.fromJson(doc.data())).toList();
+    });
+  }
+
+  Future addRecipe(Recipe recipe) async {
+    final docRecipe = FirebaseFirestore.instance.collection('recipes').doc(recipe.name);
+
+    final json = recipe.toJson();
+
+    await docRecipe.set(json);
+  }
+
 }
+
 
 class Recipe {
 
@@ -133,4 +166,19 @@ class Recipe {
   final String description;
 
   const Recipe({required this.name, required this.description});
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'description': description,
+    };
+  }
+
+  static Recipe fromJson(Map<String, dynamic> json) {
+    return Recipe(
+      name: json['name'],
+      description: json['description'],
+    );
+  }
+
 }
