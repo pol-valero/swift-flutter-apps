@@ -2,6 +2,7 @@ import 'package:ac7/add_recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:ac7/recipe_info.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 class RecipesView extends StatefulWidget {
@@ -13,41 +14,21 @@ class RecipesView extends StatefulWidget {
 
 class _RecipesViewState extends State<RecipesView>  {
 
-  /*var recipes = [
-    const Recipe(
-      name: 'Recipe 1',
-      description: 'Description',
-    ),
-    const Recipe(
-      name: 'Recipe 2',
-      description: 'Description22',
-    ),
-    const Recipe(
-      name: 'Recipe 3',
-      description: 'Description',
-    ),
-    const Recipe(
-      name: 'Recipe 4',
-      description: 'Description',
-    ),
-    const Recipe(
-      name: 'Recipe 5',
-      description: 'Description',
-    ),
-  ];*/
-
   List<Recipe> recipes = List.empty(growable: true);
+
+  String userMail = "usermail";
 
   @override
   void initState() {
-    print("initState");
     super.initState();
-    //recipes = loadRecipes()
-    //get first element of stream
-    loadRecipes().first.then((value) {
+
+    getUserMail().then((value) {
+      loadRecipes().first.then((value) {
         recipes = value;
         setState(() {});
+      });
     });
+
   }
 
   @override
@@ -144,17 +125,25 @@ class _RecipesViewState extends State<RecipesView>  {
   }
 
   Stream<List<Recipe>> loadRecipes() {
-    return FirebaseFirestore.instance.collection('recipes').snapshots().map((snapshot) {
+    return FirebaseFirestore.instance.collection(userMail).snapshots().map((snapshot) {
       return snapshot.docs.map((doc) => Recipe.fromJson(doc.data())).toList();
     });
   }
 
   Future addRecipe(Recipe recipe) async {
-    final docRecipe = FirebaseFirestore.instance.collection('recipes').doc(recipe.name);
+    final docRecipe = FirebaseFirestore.instance.collection(userMail).doc(recipe.name);
 
     final json = recipe.toJson();
 
     await docRecipe.set(json);
+  }
+
+  //function to get current logged in user mail
+  Future getUserMail() async {
+    final user = FirebaseAuth.instance.currentUser;
+    userMail = user!.email!;
+    setState(() {
+    });
   }
 
 }
